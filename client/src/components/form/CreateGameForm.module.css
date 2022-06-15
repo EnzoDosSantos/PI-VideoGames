@@ -1,0 +1,113 @@
+.formConteiner{
+    text-align: center;
+    background-image: url(file:///C:/Users/enzod/Desktop/PI-Videogames-main/client/src/assets/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 140vh;
+    width: 100%;
+}
+
+.formConteinerData{
+    display: grid;
+    text-align: center;
+    width: 250px;
+    margin: 0 auto;
+}
+
+
+.selectedGenres{
+    font-size: 22px;
+}
+
+.selectedPlatforms{
+    font-size: 22px;
+}
+
+.conteinerGenres{
+    display: grid;
+    text-align: center;
+    width: 250px;
+    margin: 20px auto;
+    border: 1px solid black;
+    border-radius: 7px;
+}
+
+.conteinerPlatforms{
+    display: grid;
+    text-align: center;
+    width: 250px;
+    margin: 20px auto;
+    border: 1px solid black;
+    border-radius: 7px;
+}
+
+.back{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: aliceblue;
+}
+
+
+.genres{
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.platforms{
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.btn{
+    border-radius: 20px;
+}
+
+.btn:disabled{
+    cursor: no-drop;
+}
+
+.error{
+    font-size: 20px;
+    color: rgb(202, 60, 60);
+    text-shadow: 1px 2px black;
+}
+
+.name{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.genresC{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.platformsC{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.description{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.rating{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.release{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.img{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,32 @@
+.img{
+    width: 400px;
+    height: 280px;
+    transition: 0.8s;
+    object-fit: cover;
+    background-color: black;
+    border: 1px solid black;
+}
+
+.img:hover{
+    transform: scale(1.09);
+}
+
+.name{
+    padding-top: 10px;
+    font-size: 22px;
+}
+
+.rating{
+    padding-top: 12px;
+    font-size: 13px;
+}
+
+.genres{
+    padding-top: 10px;
+    font-size: 18px;
+}
+
+.allGenres{
+    padding-top: 10px;
+    font-size: 16px;
+}

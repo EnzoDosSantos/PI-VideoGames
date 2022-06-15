@@ -1,0 +1,87 @@
+.conteinerGame{
+    text-align: center;
+    background-image: url(file:///C:/Users/enzod/Desktop/PI-Videogames-main/client/src/assets/background3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 120vh;
+    width: 100%;
+}
+
+.gameName{
+    font-size: 30px;
+}
+
+.linkHome{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 50px;
+    top: 50px;
+}
+
+.gameImg{
+    width: 520px;
+    height: 330px;
+    border: 1px solid black;
+    gap: 20px;
+}
+
+.description{
+    padding-top: 8px;
+    font-size: 20px;
+}
+
+.gameDescription{
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: bold;
+    text-align: justify;
+    padding-right: 3%;  
+    padding-left: 5%;
+
+}
+
+.released{
+    font-size: 20px;
+}
+
+.gameReleased{
+    padding-top: 10px;
+    font-size: 13px;
+    line-height: 22px;
+    font-weight: bold;
+}
+
+.genres{
+    font-size: 20px;
+}
+
+.gameGenres{
+    padding-top: 40px;
+    font-size: 13px;
+    line-height: 22px;
+    font-weight: bold;
+}
+
+.platforms{
+    font-size: 20px;
+}
+
+.gamePlatforms{
+    padding-top: 40px;
+    font-size: 13px;
+    line-height: 22px;
+    font-weight: bold;
+}
+
+.conteinerData{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.hr{
+    background-color: black;
+    border: 1px solid black;
+}

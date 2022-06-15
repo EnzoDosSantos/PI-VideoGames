@@ -1,0 +1,23 @@
+.conteinerError{
+    background-image: url(file:///C:/Users/enzod/Desktop/PI-Videogames-main/client/src/assets/404backgroundimg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.error{
+    display: flex;
+    justify-content: center;
+    font-size: 36px;
+    color: rgb(255, 255, 255);
+}
+
+.errorBtn{
+    width: 110px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border-radius: 30px;
+    margin-top: 20px;
+}

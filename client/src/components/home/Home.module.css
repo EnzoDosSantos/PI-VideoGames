@@ -1,0 +1,44 @@
+.home{
+    background-image: url("file:///C:/Users/enzod/Desktop/PI-Videogames-main/client/src/assets/backgroundHome.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.homeText{
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 3px black;
+}
+
+.homeLink{
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 3px black;
+}
+
+.imgGit{
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    float: right;
+    margin-right: 60px;
+    position: relative;
+    top: 230px;
+}
+
+.imgLink{
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    float: right;
+    margin-right: 30px;
+    position: relative;
+    top: 230px;
+}

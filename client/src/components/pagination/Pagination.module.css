@@ -1,0 +1,56 @@
+.conteiner {
+    display: flex;
+    justify-content: center;
+}
+
+.pageLi {
+    margin-bottom: 2%;
+    display: inline-flex;
+    justify-content: space-around;
+    height: 1em;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.button{
+    font-size: 1.5 rem;
+    border-radius: 0.5rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 2px;
+    padding: 4px 13px;
+    margin: 10px 10px;
+    box-shadow: 2px 2px 15px  #4a518e6b;
+    border: 1px solid #1F1F1F;
+    padding-left: 10px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button2{
+    font-size: 1.5 rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    border-radius: 2px;
+    padding: 4px 13px;
+    border: 1px solid #1F1F1F;
+    margin: 2rem auto;
+}
+
+.button2:hover {
+    cursor: pointer;
+}
+
+.button2:disabled{
+    cursor: no-drop;
+}
+
+.buttonActive{
+    background-color: rgba(213, 210, 218, 0.972);
+    margin-left: 10px;
+    margin-right: 10px;
+}

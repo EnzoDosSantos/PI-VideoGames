@@ -1,0 +1,12 @@
+.image{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-image: url(file:///C:/Users/enzod/Desktop/PI-Videogames-main/client/src/assets/background4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    scrollbar-width: none;
+}
