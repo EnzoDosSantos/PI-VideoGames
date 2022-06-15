@@ -64,7 +64,7 @@ const Games = () =>  {
                 
                 :
 
-                currentGames.length < 2? 
+                currentGames.length === 0? 
                 <Loading/>
                 
                 :
@@ -116,7 +116,7 @@ const Games = () =>  {
               }
             </select>
             </div>
-            </div>
+            </div>       
             <Pagination
             allGames={games.length}
             />
@@ -139,9 +139,7 @@ const Games = () =>  {
             <Pagination
             allGames={games.length}
             />
-
             </div>
-            
         )
 };
 
