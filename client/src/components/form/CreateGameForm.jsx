@@ -1,14 +1,15 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { clearCache, createGame, getAllGames, getAllGenres } from "../../redux/actions";
 import Loading from "../loading/Loading";
 import styles from './CreateGameForm.module.css'
 
 
 const CreateGameForm = () => {
+    
     const games = useSelector(state => state.games)
-    const history = useHistory()
+    const db = games.filter(e => e.createdInDB === true)
     const [value, setValue] = useState({
         name: "",
         description: "",
@@ -20,12 +21,12 @@ const CreateGameForm = () => {
     })
 
     const [error, setError] = useState({})
-
-
+ 
     const validate = (value) => {
         let error = {}
         if(value.name.trim().length === 0){
             error.name = "Enter a name"
+            return error
         }
         if (!/(https?:\/\/.*\.(?:png|jpg|jpeg))/i.test(value.image)){
             setValue({
@@ -33,30 +34,30 @@ const CreateGameForm = () => {
                 image : ""
             })
         }
-        let search = games.find(e => e.name.toLowerCase() === value.name.toLowerCase())
+        let search = db.find(e => e.name.toLowerCase() === value.name.toLowerCase())
         if(search){
             error.name = "The game already exists"
+            return error
         }
         if(value.description.trim().length === 0){
             error.description = "Enter a description"
+            return error
         }
-        if(value.platforms.length === 0){
+        if(value.platforms.length === 0 || !value.platforms){
             error.platforms = "Select a platform"
+            return error
         }
-        if(value.rating < 0 || value.rating > 5){
+        if(value.rating === "" || value.rating < 0 || value.rating > 5){
             error.rating = "The rating must be between 0 and 5"
+            return error
         }
-        if(value.rating === ""){
-            setValue({
-                ...value,
-                rating: 0
-            })
-        }
-        if(value.genres.length === 0){
+        if(value.genres.length === 0 || !value.genres){
             error.genres = "Enter a genre"
+            return error
         }
         if(!value.released){
             error.released = "Enter a released date"
+            return error
         }
         return error
     }
@@ -64,17 +65,16 @@ const CreateGameForm = () => {
 
     const handlleSubmit = (e) => {
         e.preventDefault()
-        dispacth(createGame(value))
-        setValue({
-            name: "",
-            description: "",
-            released: "",
-            rating: 0,
-            platforms: [],
-            genres: [],
-            image: ""
-        })
-        history.push("/home")
+            dispacth(createGame(value))
+            setValue({
+                name: "",
+                description: "",
+                released: "",
+                rating: 0,
+                platforms: [],
+                genres: [],
+                image: ""
+            })
         alert("Game created successfully!!")
     }
 
@@ -83,18 +83,34 @@ const CreateGameForm = () => {
         setValue({
           ...value,
           genres: value.genres.includes(e.target.value)?
-           value.genres 
-          : [...value.genres, e.target.value]
+          value.genres
+          :
+          [...value.genres, e.target.value]
         })
+        setError(validate({
+            ...value,
+            genres: value.genres.includes(e.target.value)?
+            value.genres
+            :
+            [...value.genres, e.target.value]
+        }))
       }
     
       const checkPlatforms = (e) => {
         setValue({
           ...value,
           platforms: value.platforms.includes(e.target.value)? 
-          value.platforms 
-          : [...value.platforms, e.target.value]
+          value.platforms
+          :
+          [...value.platforms, e.target.value]
         })
+        setError(validate({
+            ...value,
+            platforms: value.platforms.includes(e.target.value)? 
+            value.platforms
+            :
+            [...value.platforms, e.target.value] 
+        }))
       }
 
 
@@ -115,6 +131,10 @@ const CreateGameForm = () => {
             ...value,
             genres: newGenres
         })
+        setError(validate({
+            ...value,
+            genres: newGenres
+        }))
     }
 
     const filterPlatfroms = (e) => {
@@ -123,6 +143,10 @@ const CreateGameForm = () => {
             ...value,
             platforms: newPlatforms
         })
+        setError(validate({
+            ...value,
+            platforms: newPlatforms
+        }))
     }
  
     const dispacth = useDispatch()
@@ -138,7 +162,6 @@ const CreateGameForm = () => {
 
     const genres = useSelector(state => state.genres)
     const platforms = useSelector(state => state.platforms)
-
     return (
 
             games.length === 0?
@@ -173,7 +196,7 @@ const CreateGameForm = () => {
                 </div>
                 <div className={styles.platformsC}>
                 <label>Selected platforms: </label>
-                <select id="platforms" name="platforms" onChange={(e) => checkPlatforms(e)}>
+                <select id="platforms" defaultValue="Platforms" name="platforms" onChange={(e) => checkPlatforms(e)}>
                 <option disabled={true}>Platforms</option>
                     {
                         platforms.map(e =>
@@ -210,10 +233,7 @@ const CreateGameForm = () => {
                 </div>
                 <div className={styles.img}>
                 <label>Insert a image URL: </label>
-                <input autoComplete="off" type="text" name="image" placeholder="image" value={value.image} onChange={(e) => handlleChange(e)}></input>
-                {
-                        error.image && <p className={styles.error}>{error.image}</p>
-                }
+                <input autoComplete="off" type="text" name="image" placeholder="Paste a img URL" value={value.image} onChange={(e) => handlleChange(e)}></input>
                 </div>
                 <button className={styles.btn} type="submit" disabled={!value.name || Object.keys(error).length > 0} onClick={(e) => handlleSubmit(e)}>Crear</button>
         </form>
@@ -226,10 +246,7 @@ const CreateGameForm = () => {
             value.genres?.map(e => {
                 let genresSelected = genres.find(i => i.id === Number(e))
                 return (
-                    <div key={e}>
-                    <div>{genresSelected.name}</div>
-                    <button className={styles.btn} value={genresSelected.id} type="button" onClick={(e) => filterGenres(e)}>Delete</button>
-                    </div>
+                    <button key={e} className={styles.btn3} value={genresSelected.id} type="button" onClick={(e) => filterGenres(e)}>{genresSelected.name}</button>
                 )    
             })
         }
@@ -240,10 +257,7 @@ const CreateGameForm = () => {
         <div className={styles.platforms}>
         {
             value.platforms?.map(e =>
-                <div key={e}> 
-                <div>{e}</div>
-                <button className={styles.btn} value={e} type="button" onClick={(e) => filterPlatfroms(e)}>Delete</button>
-                </div>
+                <button key={e} className={styles.btn2} value={e} type="button" onClick={(e) => filterPlatfroms(e)}>{e}</button>
             )
         }
         </div>

@@ -25,7 +25,4 @@ const GamesCard = ({id, name, image, rating, genres}) => {
 
 }
 
-
-
-
 export default GamesCard

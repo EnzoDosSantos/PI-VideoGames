@@ -1,4 +1,4 @@
-import { 
+import {
     SET_CURRENT_PAGE,
     GET_ALL_GAMES,
     GET_ONE_GAME,
@@ -10,8 +10,8 @@ import {
     ORDER_BY_NAME,
     ORDER_BY_RATING,
     ORDER_BY_LOCATION,
-    ORDER_BY_GENRES
-    } from "../actions";
+    ORDER_BY_GENRES,
+} from "../actions";
 
 const initialState = {
     games: [],
@@ -95,13 +95,6 @@ const rootReducer = (state = initialState, action) => {
             }
         
         case ORDER_BY_NAME:
-            if(action.payload === "Default order"){
-                return{
-                    ...state,
-                    games: state.games,
-                    page: 1
-                }
-            }
             const order = action.payload === 'A-Z' ?
             state.games.sort((a , b) => {
                 if(a.name.toLowerCase() > b.name.toLowerCase()) return 1
@@ -121,13 +114,6 @@ const rootReducer = (state = initialState, action) => {
         }
         
         case ORDER_BY_RATING:
-            if(action.payload === "Default order"){
-                return {
-                    ...state,
-                    games: state.allGames,
-                    page: 1
-                }
-            } 
             const order2 = action.payload === "Higher - lower"?
             state.games.sort((a,b) => Number(b.rating) - Number(a.rating))
             : 

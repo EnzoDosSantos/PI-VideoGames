@@ -71,6 +71,16 @@
     cursor: no-drop;
 }
 
+.btn2{
+    border-radius: 20px;
+    background-color: rgb(111, 6, 191);
+}
+
+.btn3{
+    border-radius: 20px;
+    background-color: rgb(155, 26, 26);
+}
+
 .error{
     font-size: 20px;
     color: rgb(202, 60, 60);

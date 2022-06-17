@@ -11,7 +11,6 @@ import backImg from '../../../assets/back.png'
 
 
 const DetailGame = () => {
-
     const {id} = useParams()
     const dispacth = useDispatch()
 
@@ -24,6 +23,8 @@ const DetailGame = () => {
     }, [dispacth, id])
 
     const game = useSelector(state => state.game)
+    
+
    return (
        game.msg? 
        <RoutesError/>
@@ -42,7 +43,8 @@ const DetailGame = () => {
                   :
                <img className={styles.gameImg} src={img} alt="lol"/>
            }
-
+           <div>Game Rating</div>
+           <div>{game.rating}</div>
            <div className={styles.description}>Game description</div>
            {
                 game.description?

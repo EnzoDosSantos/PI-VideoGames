@@ -10,3 +10,8 @@
     width: 100%;
     scrollbar-width: none;
 }
+
+.img2{
+    display: flex;
+    justify-content: center;
+}

@@ -2,6 +2,7 @@ const axios = require("axios")
 require('dotenv').config();
 const {API_KEY} = process.env
 const {Videogame, Genres} = require("../db.js")
+
 async function getVideogame(id){
     try {
         if(id.includes("-")){

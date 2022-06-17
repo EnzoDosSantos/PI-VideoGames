@@ -89,14 +89,12 @@ const Games = () =>  {
             <div className={styles.filterConteiner}>
             <select defaultValue="Alphabetical order" onChange={ (e) => handlleOrder(e)}>
               <option value='Alphabetical order' disabled>Alphabetical order</option>
-              <option value="Default order">Default order</option>
               <option value='A-Z'>A-Z</option>
               <option value='Z-A'>Z-A</option>
             </select>
 
             <select defaultValue="Order by rating" onChange={ (e) => handlleSelect(e)}>
               <option value='Order by rating' disabled>Order by rating</option>
-              <option value="Default order">Default order</option>
               <option value='Higher - lower'>Higher - lower</option>
               <option value='Lower - higher'>Lower - higher</option>
             </select>

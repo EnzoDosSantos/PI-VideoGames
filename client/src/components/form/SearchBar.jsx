@@ -33,6 +33,7 @@ const SearchBar = () => {
                      onClick={(e) => handlleClick(e)}>
                          Search
                     </button>
+
             </div>
     )
 }

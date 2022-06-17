@@ -53,7 +53,6 @@ export const getAllGenres = () => (dispatch) => {
     .catch(e => console.log(e))
 }
 
-
 export const clearCache = () => {
     return {
         type: CLEAR_CACHE
