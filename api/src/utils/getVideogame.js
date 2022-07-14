@@ -15,7 +15,7 @@ async function getVideogame(id){
             })
             return game
         }
-        let {data} = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`)
+        let {data} = await axios.get(`https://api.rawg.io/api/games/${id}?key=df9377a8ee214a3db98bfcee245b4f48`)
         let videogames = {
             id: data.id,
             name: data.name,
