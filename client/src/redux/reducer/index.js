@@ -11,6 +11,7 @@ import {
     ORDER_BY_RATING,
     ORDER_BY_LOCATION,
     ORDER_BY_GENRES,
+    DELETE_GAME,
 } from "../actions";
 
 const initialState = {
@@ -43,6 +44,12 @@ const rootReducer = (state = initialState, action) => {
                 game:  action.payload,
                 page: 1
         }
+
+        case DELETE_GAME:
+            return {
+                ...state,
+                page: 1
+            }
 
         case GET_GAMES_BY_NAME:
             let error = {error: "No results found"}

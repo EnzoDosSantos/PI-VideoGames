@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { clearCache, clearGameCache, getOneGame } from "../../../redux/actions";
+import { Link, useHistory } from "react-router-dom";
+import { clearCache, clearGameCache, getOneGame, deleteGame } from "../../../redux/actions";
 import img from "../../../assets/noImg.png"
 import Loading from "../../loading/Loading";
 import RoutesError from "../../error/RoutesError";
@@ -11,6 +11,7 @@ import backImg from '../../../assets/back.png'
 
 
 const DetailGame = () => {
+    const history = useHistory()
     const {id} = useParams()
     const dispacth = useDispatch()
 
@@ -23,7 +24,11 @@ const DetailGame = () => {
     }, [dispacth, id])
 
     const game = useSelector(state => state.game)
-    
+    const handlleDelete = (id) => {
+        dispacth(deleteGame(id))
+        alert("Game successfully removed")
+        history.push("/home")
+    }
 
    return (
        game.msg? 
@@ -37,6 +42,12 @@ const DetailGame = () => {
             <img className={styles.linkHome} src={backImg} alt="go back"/>
            </Link>
            <h2 className={styles.gameName}>{game.name}</h2>
+           {
+            game.createdInDB === true?
+            <button onClick={() => handlleDelete(id)}>Delete Game</button>
+            :
+            null
+           }
            {
                  game.image? 
                <img className={styles.gameImg} src={game.image} alt="lol"/> 

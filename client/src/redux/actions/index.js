@@ -12,6 +12,7 @@ export const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
 export const ORDER_BY_RATING = "ORDER_BY_RATING"
 export const ORDER_BY_LOCATION = "ORDER_BY_LOCATION"
 export const ORDER_BY_GENRES = "ORDER_BY_GENRES"
+export const DELETE_GAME = "DELETE_GAME"
 
 export const getAllGames = () => (dispatch) => {
     fetch("http://localhost:3001/videogames")
@@ -27,6 +28,16 @@ export const getOneGame = (id) => (dispatch) => {
     .then(res => res.json())
     .then(payload => dispatch({type: GET_ONE_GAME, payload: payload}))
     .catch(() => dispatch({type: GET_ONE_GAME, payload: error}) )
+}
+
+
+export const deleteGame = (id) => async (dispatch) => {
+    try {
+        await axios.delete(`http://localhost:3001/videogame/${id}`)
+        dispatch({type: DELETE_GAME})
+    } catch (error) {
+        console.log(error)   
+    }
 }
 
 
