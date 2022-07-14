@@ -8,7 +8,7 @@ async function getGenres(){
     try {
         const allGenre = await Genres.findAll()
         if(allGenre.length === 0){
-            let { data } = await axios.get(`https://api.rawg.io/api/genres?key=df9377a8ee214a3db98bfcee245b4f48`)
+            let { data } = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`)
 
             data.results.forEach(e => {
                  Genres.findOrCreate({

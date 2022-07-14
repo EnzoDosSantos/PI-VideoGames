@@ -4,7 +4,7 @@ const {API_KEY} = process.env
 
 async function getApiInfo(name){
     try {
-        let URL = `https://api.rawg.io/api/games?key=df9377a8ee214a3db98bfcee245b4f48`
+        let URL = `https://api.rawg.io/api/games?key=${API_KEY}`
         if(!name){
             let apiData = []
             let next_url = URL
@@ -28,7 +28,7 @@ async function getApiInfo(name){
             return apiData
         }
         
-        let {data} = await axios.get(`https://api.rawg.io/api/games?key=df9377a8ee214a3db98bfcee245b4f48&search=${name}`)
+        let {data} = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&search=${name}`)
         let apiData = []
         data.results.map(e => {
             apiData.push(
