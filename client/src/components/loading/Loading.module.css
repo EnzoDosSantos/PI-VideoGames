@@ -1,17 +1,57 @@
-.image{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    background-image: url(file:///C:/Users/enzod/Desktop/henry/PI-Videogames-main/client/src/assets/background4.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-    scrollbar-width: none;
-}
+ .spinner {
+     height: 65px;
+     width: max-content;
+     font-size: 85px;
+     font-weight: 600;
+     font-family: monospace;
+     letter-spacing: 1em;
+     filter: drop-shadow(0 0 10px);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     color: #282828;
+ }
 
-.img2{
-    display: flex;
-    justify-content: center;
-}
+ .spinner span {
+     animation: loading6454 1.75s ease infinite;
+ }
+
+ .spinner span:nth-child(2) {
+     animation-delay: 0.25s;
+ }
+
+ .spinner span:nth-child(3) {
+     animation-delay: 0.5s;
+ }
+
+ .spinner span:nth-child(4) {
+     animation-delay: 0.75s;
+ }
+
+ .spinner span:nth-child(5) {
+     animation-delay: 1s;
+ }
+
+ .spinner span:nth-child(6) {
+     animation-delay: 1.25s;
+ }
+
+ .spinner span:nth-child(7) {
+     animation-delay: 1.5s;
+ }
+
+ @keyframes loading6454 {
+
+     0%,
+     100% {
+         transform: translateY(0);
+     }
+
+     50% {
+         transform: translateY(-10px);
+     }
+ }

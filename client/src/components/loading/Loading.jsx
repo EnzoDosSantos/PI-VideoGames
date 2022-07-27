@@ -1,12 +1,19 @@
 import React from "react";
-import loading from '../../assets/loading.gif'
 import styles from './Loading.module.css'
 
 const Loading = () => {
     return (
-        <div className={styles.image}>
-        <img className={styles.img2} width={300} height={300} src={loading} alt="loading"/>
-        </div>
+        <>
+            <div className={styles.spinner}>
+                <span>L</span>
+                <span>O</span>
+                <span>A</span>
+                <span>D</span>
+                <span>I</span>
+                <span>N</span>
+                <span>G</span>
+            </div>
+        </>
     )
 }
 

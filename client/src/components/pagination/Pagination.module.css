@@ -1,56 +1,59 @@
 .conteiner {
+    z-index: 0;
+    position: relative;
     display: flex;
-    justify-content: center;
-}
-
-.pageLi {
-    margin-bottom: 2%;
-    display: inline-flex;
-    justify-content: space-around;
-    height: 1em;
-    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
     flex-direction: row;
-    gap: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
-.button{
-    font-size: 1.5 rem;
-    border-radius: 0.5rem;
-    font-family: sans-serif;
-    font-weight: bold;
-    border: none;
-    border-radius: 2px;
-    padding: 4px 13px;
-    margin: 10px 10px;
-    box-shadow: 2px 2px 15px  #4a518e6b;
-    border: 1px solid #1F1F1F;
-    padding-left: 10px;
-}
-
-.button:hover {
-    cursor: pointer;
-}
-
-.button2{
-    font-size: 1.5 rem;
+.btn {
+    position: relative;
+    font-size: 17px;
     text-transform: uppercase;
-    font-weight: 900;
-    border-radius: 2px;
-    padding: 4px 13px;
-    border: 1px solid #1F1F1F;
-    margin: 2rem auto;
+    text-decoration: none;
+    padding: 1em 2.5em;
+    display: inline-block;
+    border-radius: 6em;
+    transition: all .2s;
+    border: none;
+    font-family: inherit;
+    font-weight: 500;
+    color: black;
+    background-color: white;
+    border: rgb(134, 134, 134) solid 1px;
 }
 
-.button2:hover {
-    cursor: pointer;
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.button2:disabled{
-    cursor: no-drop;
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.buttonActive{
-    background-color: rgba(213, 210, 218, 0.972);
-    margin-left: 10px;
-    margin-right: 10px;
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
 }

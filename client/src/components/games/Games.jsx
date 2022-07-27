@@ -10,7 +10,7 @@ import Pagination from '../pagination/Pagination';
 import styles from './Games.module.css';
 
 
-const Games = () =>  {
+const Games = () => {
 
     const page = useSelector(state => state.page)
     const gamePerPage = 15
@@ -25,9 +25,9 @@ const Games = () =>  {
     useEffect(() => {
         dispatch(getAllGames())
         dispatch(getAllGenres())
-    },[dispatch])
+    }, [dispatch])
 
-    const handlleCLick =() =>{
+    const handlleCLick = () => {
         dispatch(getAllGames())
         dispatch(clearCache())
     }
@@ -52,93 +52,101 @@ const Games = () =>  {
         setSort(e.target.value)
     }
 
-        let lastIndex =  page * gamePerPage
-        let firstIndex = lastIndex - gamePerPage
-        let currentGames = games.slice(firstIndex, lastIndex)
+    let lastIndex = page * gamePerPage
+    let firstIndex = lastIndex - gamePerPage
+    let currentGames = games.slice(firstIndex, lastIndex)
 
 
 
-        return (
-                allGames.error?
-                <Error404/>
-                
-                :
+    return (
+        allGames.length === 0 ?
+            <Loading />
+            :
+            <>
+                <div className={styles.conteinerGames}>
+                    <div className={styles.titleConteiner}>
+                    <h1 className={styles.title}>APP GAMERY</h1>
+                        <SearchBar />
+                        {
+                            reload === true ?
+                                <button className={styles.reload} onClick={() => handlleCLick()}>Reload</button>
+                                :
+                                null
+                        }
+                        </div>
+                        <div className={styles.create}>
+                            <Link to="/create">
+                                <h4>Create a game</h4>
+                            </Link>
+                        </div>
 
-                currentGames.length === 0? 
-                <Loading/>
-                
-                :
-            <div className={styles.conteinerGames}>
-                <h1 className={styles.title}>APP GAMERY</h1>
-                <div className={styles.titleConteiner}>
-                <SearchBar/>
+
+                </div>
+
                 {
-                    reload === true?
-                    <button className={styles.reload} onClick={ () => handlleCLick()}>Reload</button>
-                    :
-                     null
+                    allGames.error ?
+                        <Error404 />
+                        :
+                        <>
+                            <div className={styles.all}>
+                                <div className={styles.filterTitle}>Orders and filters</div>
+                                <div className={styles.filterConteiner}>
+                                    <select defaultValue="Alphabetical order" onChange={(e) => handlleOrder(e)}>
+                                        <option value='Alphabetical order' disabled>Alphabetical order</option>
+                                        <option value='A-Z'>A-Z</option>
+                                        <option value='Z-A'>Z-A</option>
+                                    </select>
+
+                                    <select defaultValue="Order by rating" onChange={(e) => handlleSelect(e)}>
+                                        <option value='Order by rating' disabled>Order by rating</option>
+                                        <option value='Higher - lower'>Higher - lower</option>
+                                        <option value='Lower - higher'>Lower - higher</option>
+                                    </select>
+
+                                    <select defaultValue="Order created" onChange={(e) => handlleSelectLocation(e)}>
+                                        <option value='Order created' disabled>Filter created</option>
+                                        <option value='All games' >All games</option>
+                                        <option value='Created at db' >Created at db</option>
+                                        <option value='Only api games'>Only api games</option>
+                                    </select>
+
+                                    <select defaultValue="Order by genres" onChange={(e) => handlleSelectGenres(e)}>
+                                        <option value="Order by genres" disabled>Filter by genres</option>
+                                        <option value="Default order">Default order</option>
+                                        {
+                                            genres?.map(e => <option key={e.id} value={e.name}>{e.name}</option>)
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <Pagination
+                                allGames={games.length}
+                            />
+
+
+                            <div className={styles.conteinerGamescard}>
+                                {
+                                    currentGames?.map(e =>
+                                        <div key={e.id}>
+                                            <GamesCard
+                                                id={e.id}
+                                                name={e.name}
+                                                image={e.image}
+                                                rating={e.rating}
+                                                genres={e.genres}
+                                            />
+                                        </div>
+                                    )
+                                }
+                            </div>
+
+                            <Pagination
+                                allGames={games.length}
+                            />
+                        </>
                 }
-                <div className={styles.create}>
-                <Link to="/create">
-                    <h4>Create a game</h4>
-                </Link>
-                </div>
-                </div>
-            <div className={styles.all}>
-            <div className={styles.filterTitle}>Order by</div>
-            <div className={styles.filterConteiner}>
-            <select defaultValue="Alphabetical order" onChange={ (e) => handlleOrder(e)}>
-              <option value='Alphabetical order' disabled>Alphabetical order</option>
-              <option value='A-Z'>A-Z</option>
-              <option value='Z-A'>Z-A</option>
-            </select>
-
-            <select defaultValue="Order by rating" onChange={ (e) => handlleSelect(e)}>
-              <option value='Order by rating' disabled>Order by rating</option>
-              <option value='Higher - lower'>Higher - lower</option>
-              <option value='Lower - higher'>Lower - higher</option>
-            </select>
-
-            <select defaultValue="Order created" onChange={ (e) => handlleSelectLocation(e)}>
-              <option value='Order created' disabled>Order created</option>
-              <option value='All games' >All games</option>
-              <option value='Created at db' >Created at db</option>
-              <option value='Only api games'>Only api games</option>
-            </select>
-
-            <select defaultValue="Order by genres" onChange={ (e) => handlleSelectGenres(e)}>
-              <option value="Order by genres" disabled>Order by genres</option>
-              <option value="Default order">Default order</option>
-              {
-                  genres?.map(e => <option key={e.id} value={e.name}>{e.name}</option>)
-              }
-            </select>
-            </div>
-            </div>       
-            <Pagination
-            allGames={games.length}
-            />
-            <div className={styles.conteinerGamescard}>
-                {
-            currentGames?.map(e => 
-                <div key={e.id}>
-                <GamesCard
-                    id={e.id}
-                    name={e.name}
-                    image={e.image}
-                    rating={e.rating}
-                    genres={e.genres}
-                />
-                </div>
-                )
-            }
-            </div>
-
-            <Pagination
-            allGames={games.length}
-            />
-            </div>
-        )
+            </>
+    )
 };
 
 export default Games

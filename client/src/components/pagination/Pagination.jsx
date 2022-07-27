@@ -8,31 +8,26 @@ function Pagination({ allGames }) {
   const dispatch = useDispatch()
   let pageNumbers = []
   const gamePerPage = 15
-  let page = Math.ceil(allGames/gamePerPage)
+  let page = Math.ceil(allGames / gamePerPage)
 
 
-  for(let i = 1 ; i <= page; i++){
+  for (let i = 1; i <= page; i++) {
     pageNumbers.push(i)
   }
- 
+
+
   return (
-    <div className={styles.conteiner}>
-    <nav>
-      <ul>
+    <div>
+      <nav className={styles.conteiner}>
 
-          <button className={styles.button2} disabled={pages - 1 === 0} onClick={() => dispatch(setCurrentPage(pages - 1))} >Prev</button>
-
-      { 
+        <button disabled={pages - 1 === 0} className={styles.btn} onClick={() => dispatch(setCurrentPage(pages - 1))}>Previous</button>
+        { 
         pageNumbers?.map(e => (
-          <li className={styles.pageLi} key={e}>
-            <button className={pages === e? styles.buttonActive : styles.button} onClick={() => dispatch(setCurrentPage(e))}>{e}</button>
-          </li>
+            <button key={e} className={styles.btn} onClick={() => dispatch(setCurrentPage(e))}>{e}</button>
         ))
       }
-
-          <button className={styles.button2} disabled={pages === page} onClick={() => dispatch(setCurrentPage(pages + 1))} >Next</button>
-      </ul>
-    </nav>
+        <button disabled={pages === page} className={styles.btn} onClick={() => dispatch(setCurrentPage(pages + 1))}>Next</button>
+        </nav>
     </div>
   )
 }

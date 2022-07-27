@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { clearCache, clearGameCache, getOneGame, deleteGame } from "../../../redux/actions";
 import img from "../../../assets/noImg.png"
 import Loading from "../../loading/Loading";
@@ -10,9 +10,8 @@ import styles from './DetailGame.module.css'
 import backImg from '../../../assets/back.png'
 
 
-const DetailGame = () => {
-    const history = useHistory()
-    const {id} = useParams()
+const DetailGame = () => { 
+    const { id } = useParams()
     const dispacth = useDispatch()
 
     useEffect(() => {
@@ -27,7 +26,6 @@ const DetailGame = () => {
     const handlleDelete = (id) => {
         dispacth(deleteGame(id))
         alert("Game successfully removed")
-        history.push("/home")
     }
 
    return (

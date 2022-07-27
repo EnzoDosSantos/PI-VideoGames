@@ -1,32 +1,73 @@
-.img{
-    width: 400px;
-    height: 280px;
-    transition: 0.8s;
-    object-fit: cover;
-    background-color: black;
-    border: 1px solid black;
-}
+    .img {
+        width: 400px;
+        height: 200px;
+        border-radius: 20px;
+    }
 
-.img:hover{
-    transform: scale(1.09);
-}
+    .cardDetails {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        color: black;
+        height: 130px;
+        gap: .5em;
+        display: grid;
+        place-content: center;
+    }
 
-.name{
-    padding-top: 10px;
-    font-size: 22px;
-}
+    .cardButton {
+        transform: translate(-50%, 125%);
+        width: 60%;
+        border-radius: 1rem;
+        border: none;
+        background-color: #008bf8;
+        color: #fff;
+        font-size: 1rem;
+        padding: .5rem 1rem;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        opacity: 0;
+        transition: 0.3s ease-out;
+    }
 
-.rating{
-    padding-top: 12px;
-    font-size: 13px;
-}
+    .textBody {
+        color: rgb(134, 134, 134);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        margin: 0 auto;
+        padding: 0;
+        text-align: center;
+    }
 
-.genres{
-    padding-top: 10px;
-    font-size: 18px;
-}
+    .textTitle {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
 
-.allGenres{
-    padding-top: 10px;
-    font-size: 16px;
-}
+    .card {
+        width: 420px;
+        height: 320px;
+        border-radius: 20px;
+        background: #f5f5f5;
+        position: relative;
+        padding: 1.8rem;
+        border: 2px solid #c3c6ce;
+        transition: 0.5s ease-out;
+        overflow: visible;
+    }
+
+    .card:hover {
+        border-color: #008bf8;
+        box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    .card:hover .cardButton {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
