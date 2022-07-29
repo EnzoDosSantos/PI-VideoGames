@@ -1,87 +1,104 @@
-.conteinerGame{
-    text-align: center;
-    background-image: url(file:///C:/Users/enzod/Desktop/henry/PI-Videogames-main/client/src/assets/background3.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 120vh;
-    width: 100%;
-}
 
-.gameName{
-    font-size: 30px;
-}
-
-.linkHome{
+.back img {
     width: 30px;
     height: 30px;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    left: 50px;
-    top: 50px;
 }
 
-.gameImg{
+.rating {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.gameReleased {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.conteinerGame {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gameImg {
     width: 520px;
     height: 330px;
     border: 1px solid black;
     gap: 20px;
 }
 
-.description{
-    padding-top: 8px;
-    font-size: 20px;
+.conteinerRating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-.gameDescription{
+.gameDescription {
     font-size: 12px;
     line-height: 20px;
     font-weight: bold;
     text-align: justify;
-    padding-right: 3%;  
+    padding-right: 3%;
     padding-left: 5%;
-
+    height: 150px;
+    width: 80rem;
 }
 
-.released{
-    font-size: 20px;
+.conteinerReleased {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-.gameReleased{
-    padding-top: 10px;
-    font-size: 13px;
-    line-height: 22px;
-    font-weight: bold;
+.conteinerGenres{
+    display: flex;
+    flex-direction: column;
+}
+
+.conteinerPlatform{
+    display: flex;
+    flex-direction: column;
+}
+
+.conteinerGenresPlatforms{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
 }
 
 .genres{
-    font-size: 20px;
-}
-
-.gameGenres{
-    padding-top: 40px;
-    font-size: 13px;
-    line-height: 22px;
-    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .platforms{
-    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .gamePlatforms{
-    padding-top: 40px;
-    font-size: 13px;
-    line-height: 22px;
     font-weight: bold;
 }
 
-.conteinerData{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+.gameGenres{
+    font-weight: bold;
 }
 
-.hr{
-    background-color: black;
-    border: 1px solid black;
+.gameName{
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 8px;
 }

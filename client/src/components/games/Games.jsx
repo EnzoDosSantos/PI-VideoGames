@@ -65,11 +65,12 @@ const Games = () => {
             <>
                 <div className={styles.conteinerGames}>
                     <div className={styles.titleConteiner}>
-                    <h1 className={styles.title}>APP GAMERY</h1>
+                    <div className={styles.title}>APP GAMERY</div>
+                    {/* <h1 className={styles.title}>APP GAMERY</h1> */}
                         <SearchBar />
                         {
                             reload === true ?
-                                <button className={styles.reload} onClick={() => handlleCLick()}>Reload</button>
+                                <button className={styles.reload} onClick={() => handlleCLick()}>RELOAD GAMES</button>
                                 :
                                 null
                         }
@@ -127,7 +128,7 @@ const Games = () => {
                             <div className={styles.conteinerGamescard}>
                                 {
                                     currentGames?.map(e =>
-                                        <div key={e.id}>
+                                        <div className={styles.conteiner_conteinerGames} key={e.id}>
                                             <GamesCard
                                                 id={e.id}
                                                 name={e.name}
