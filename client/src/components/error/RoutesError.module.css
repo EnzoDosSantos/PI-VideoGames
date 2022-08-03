@@ -1,5 +1,5 @@
 .containerError{
-    background-image: url(file:///C:/Users/enzod/Desktop/henry/PI-Videogames-main/client/src/assets/routesError.pg.jpg);
+    background-image: url("../../assets/routesError.pg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
