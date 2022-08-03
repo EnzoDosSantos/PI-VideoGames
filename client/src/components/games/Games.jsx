@@ -66,7 +66,6 @@ const Games = () => {
                 <div className={styles.conteinerGames}>
                     <div className={styles.titleConteiner}>
                     <div className={styles.title}>APP GAMERY</div>
-                    {/* <h1 className={styles.title}>APP GAMERY</h1> */}
                         <SearchBar />
                         {
                             reload === true ?

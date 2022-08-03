@@ -1,10 +1,10 @@
-
 .back img {
     width: 30px;
     height: 30px;
 }
 
 .rating {
+    margin-top: -12px;
     font-size: 17px;
     font-weight: bold;
 }
@@ -33,6 +33,7 @@
     height: 330px;
     border: 1px solid black;
     gap: 20px;
+    border-radius: 20px;
 }
 
 .conteinerRating {
@@ -40,17 +41,20 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    margin-top: 20px;
 }
 
 .gameDescription {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 20px;
     font-weight: bold;
     text-align: justify;
     padding-right: 3%;
     padding-left: 5%;
+    padding-top: 12px;
     height: 150px;
     width: 80rem;
+    border-radius: 33px;
 }
 
 .conteinerReleased {
@@ -61,17 +65,17 @@
     margin-top: 20px;
 }
 
-.conteinerGenres{
+.conteinerGenres {
     display: flex;
     flex-direction: column;
 }
 
-.conteinerPlatform{
+.conteinerPlatform {
     display: flex;
     flex-direction: column;
 }
 
-.conteinerGenresPlatforms{
+.conteinerGenresPlatforms {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
@@ -79,26 +83,97 @@
     gap: 100px;
 }
 
-.genres{
+.genres {
     margin-bottom: 10px;
     text-align: center;
 }
 
-.platforms{
+.platforms {
     margin-bottom: 10px;
     text-align: center;
 }
 
-.gamePlatforms{
+.gamePlatforms {
     font-weight: bold;
 }
 
-.gameGenres{
+.gameGenres {
     font-weight: bold;
 }
 
-.gameName{
+.gameName {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 32px;
     margin-bottom: 8px;
+    margin-left: 10px;
+}
+
+.conteinerbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.deleteGameBtn {
+    width: 150px;
+    height: 45px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: red;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    background: #e62222;
+    margin-top: 20px;
+}
+
+.deleteGameBtn,
+button span {
+    transition: 200ms;
+}
+
+.deleteGameBtn .text {
+    transform: translateX(35px);
+    color: white;
+    font-weight: bold;
+}
+
+.deleteGameBtn .icon {
+    position: absolute;
+    border-left: 1px solid #c41b1b;
+    transform: translateX(110px);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deleteGameBtn svg {
+    width: 15px;
+    fill: #eee;
+}
+
+.deleteGameBtn:hover {
+    background: #ff3636;
+}
+
+.deleteGameBtn:hover .text {
+    color: transparent;
+}
+
+.deleteGameBtn:hover .icon {
+    width: 150px;
+    border-left: none;
+    transform: translateX(0);
+}
+
+.deleteGameBtn:focus {
+    outline: none;
+}
+
+.deleteGameBtn:active .icon svg {
+    transform: scale(0.8);
 }

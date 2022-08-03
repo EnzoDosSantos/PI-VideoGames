@@ -1,23 +1,159 @@
-.conteinerError{
-    background-image: url(file:///C:/Users/enzod/Desktop/henry/PI-Videogames-main/client/src/assets/404backgroundimg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-}
-
-.error{
+.errorConteiner {
     display: flex;
     justify-content: center;
-    font-size: 36px;
-    color: rgb(255, 255, 255);
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
 }
 
-.errorBtn{
-    width: 110px;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    border-radius: 30px;
-    margin-top: 20px;
+.span{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.tooltip {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    border: 0px solid transparent;
+    background-color: rgba(100, 77, 237, 0.08);
+    border-radius: 1.25em;
+    transition: all 0.2s linear;
+}
+
+.tooltip:hover {
+    box-shadow: 3.4px 2.5px 4.9px rgba(0, 0, 0, 0.025),
+        8.6px 6.3px 12.4px rgba(0, 0, 0, 0.035),
+        17.5px 12.8px 25.3px rgba(0, 0, 0, 0.045),
+        36.1px 26.3px 52.2px rgba(0, 0, 0, 0.055),
+        99px 72px 143px rgba(0, 0, 0, 0.08);
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 4em;
+    background-color: rgba(0, 0, 0, 0.253);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    left: 110%;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent rgba(0, 0, 0, 0.253) transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+@keyframes translate {
+    10% {
+        transform: translate(0, 0);
+    }
+
+    15% {
+        transform: translate(0, 0);
+    }
+
+    20% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(0, 0);
+    }
+
+    30% {
+        transform: translate(0, 0);
+    }
+
+    35% {
+        transform: translate(0, 0);
+    }
+
+    40% {
+        transform: translate(0, 0);
+    }
+
+    75% {
+        transform: translate(0, 1500px);
+    }
+
+    100% {
+        transform: translate(0, 1500px);
+    }
+}
+
+@keyframes rotate {
+    10% {
+        transform: rotate(15deg);
+    }
+
+    15% {
+        transform: rotate(-10deg);
+    }
+
+    20% {
+        transform: rotate(5deg);
+    }
+
+    25% {
+        transform: rotate(-5deg);
+    }
+
+    30% {
+        transform: rotate(2deg);
+    }
+
+    35% {
+        transform: rotate(-1deg);
+    }
+
+    40% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(700deg);
+    }
+
+    100% {
+        transform: rotate(700deg);
+    }
+}
+
+.rotate {
+    display: inline-block;
+    animation-name: rotate;
+    transform-origin: top center;
+    animation-duration: 5s;
+    animation-fill-mode: both;
+}
+
+.translate {
+    display: inline-block;
+    animation-name: translate;
+    transform-origin: top center;
+    animation-duration: 5s;
+    animation-fill-mode: both;
 }
