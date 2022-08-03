@@ -1,5 +1,5 @@
 .home{
-    background-image: url(file:///C:/Users/enzod/Desktop/henry/PI-Videogames-main/client/src/assets/backgroundHome.jpg);
+    background-image: url("../../assets/backgroundHome.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
