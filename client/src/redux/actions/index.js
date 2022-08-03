@@ -1,5 +1,7 @@
 import axios from "axios"
 
+const url = "https://appgamery.up.railway.app/"
+
 export const GET_ALL_GAMES = "GET_ALL_GAMES"
 export const GET_ONE_GAME = "GET_ONE_GAME"
 export const GET_ALL_GENRES = "GET_ALL_GENRES"
@@ -15,7 +17,7 @@ export const ORDER_BY_GENRES = "ORDER_BY_GENRES"
 export const DELETE_GAME = "DELETE_GAME"
 
 export const getAllGames = () => (dispatch) => {
-    fetch("http://localhost:3001/videogames")
+    fetch(`${url}videogames`)
     .then(res => res.json())
     .then(payload =>  dispatch({type: GET_ALL_GAMES, payload: payload}))
     .catch(e => console.log(e))
@@ -24,7 +26,7 @@ export const getAllGames = () => (dispatch) => {
 
 export const getOneGame = (id) => (dispatch) => {
     let error = {error: "No results found"}
-    fetch(`http://localhost:3001/videogame/${id}`)
+    fetch(`${url}videogame/${id}`)
     .then(res => res.json())
     .then(payload => dispatch({type: GET_ONE_GAME, payload: payload}))
     .catch(() => dispatch({type: GET_ONE_GAME, payload: error}) )
@@ -33,7 +35,7 @@ export const getOneGame = (id) => (dispatch) => {
 
 export const deleteGame = (id) => async (dispatch) => {
     try {
-        await axios.delete(`http://localhost:3001/videogame/${id}`)
+        await axios.delete(`${url}videogame/${id}`)
         dispatch({type: DELETE_GAME})
     } catch (error) {
         console.log(error)   
@@ -42,7 +44,7 @@ export const deleteGame = (id) => async (dispatch) => {
 
 
 export const getGamesByName = (name) => (dispatch) => {
-    fetch(`http://localhost:3001/videogames?search=${name}`)
+    fetch(`${url}videogames?search=${name}`)
     .then(res => res.json())
     .then(payload => dispatch({type: GET_GAMES_BY_NAME, payload: payload}))
     .catch(e => console.log(e))
@@ -50,7 +52,7 @@ export const getGamesByName = (name) => (dispatch) => {
 
 export const createGame = (values) => async (dispatch) => {
     try {
-        const {data} = await axios.post("http://localhost:3001/videogame", values)
+        const {data} = await axios.post(`${url}videogame`, values)
         dispatch({type: CREATE_GAME, payload: data})  
     } catch (error) {
         console.log(error)
@@ -58,7 +60,7 @@ export const createGame = (values) => async (dispatch) => {
 }
 
 export const getAllGenres = () => (dispatch) => {
-    fetch("http://localhost:3001/genres")
+    fetch(`${url}genres`)
     .then(res => res.json())
     .then(payload => dispatch({type: GET_ALL_GENRES, payload: payload}))
     .catch(e => console.log(e))
